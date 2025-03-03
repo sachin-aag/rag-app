@@ -10,3 +10,4 @@ accelerate>=0.25.0
 sentence-transformers>=2.2.2
 chromadb>=0.4.18
 ollama>=0.1.6 
+llama-index-llms-ollama
