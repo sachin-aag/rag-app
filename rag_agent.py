@@ -65,23 +65,20 @@ def create_rag_agent(model_name: str = "llama2:7b") -> RetrieverQueryEngine:
     
     return query_engine
 
-def query_rag(query_engine, question: str, streaming_callback=None):
+def query_rag(query_engine, question: str):
     """
     Query the RAG system and get response with citations
     """
-    # Enable streaming if callback is provided
-    response = query_engine.query(
-        question,
-        streaming=True if streaming_callback else False,
-        streaming_callback=streaming_callback
-    )
+    # Get response without streaming
+    response = query_engine.query(question)
     
-    # Return both response and sources for non-streaming case
+    # Return both response and sources
     return {
         "answer": response.response,
         "sources": [
             {
-                "file_name": node.node.metadata['file_name'],
+                "file_name": node.node.metadata.get('file_name', 'Unknown'),
+                "url": node.node.metadata.get('url', ''),
                 "score": node.score,
                 "content": node.node.text[:200]
             }
