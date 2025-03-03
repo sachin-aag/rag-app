@@ -1,6 +1,5 @@
 # Project-specific
 cleaned_markdown_results/
-index_storage/
 model_cache/
 *.md
 !README.md
