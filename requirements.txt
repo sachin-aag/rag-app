@@ -9,6 +9,9 @@ bitsandbytes>=0.41.0
 accelerate>=0.25.0
 sentence-transformers>=2.2.2
 chromadb>=0.4.18
-ollama>=0.1.6 
+ollama>=0.1.6
 llama-index-llms-ollama
 llama-index-embeddings-huggingface
+llama-index-vector-stores-supabase
+supabase>=2.3.0
+psycopg2-binary>=2.9.9
